@@ -1,9 +1,9 @@
 {
   "name": "bbpdf",
   "description": "Plugin to generate PDF documents",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Keir Bowden @keirbowden",
-  "bugs": "https://github.com/keirbowden/bbpdf/issues",
+  "bugs": "https://github.com/keirbowden/pdfplugin/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -41,7 +41,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/keirbowden/bbpdf",
+  "homepage": "https://github.com/keirbowden/pdfplugin",
   "keywords": [
     "sfdx-plugin"
   ],
@@ -50,15 +50,15 @@
     "commands": "./lib/commands",
     "bin": "sfdx",
     "topics": {
-      "hello": {
-        "description": "Commands to say hello."
+      "bbpdf": {
+        "description": "Commands to generate PDFs."
       }
     },
     "devPlugins": [
       "@oclif/plugin-help"
     ]
   },
-  "repository": "keirbowden/bbpdf",
+  "repository": "https://github.com/keirbowden/pdfplugin",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "tslint -p test -t stylish",

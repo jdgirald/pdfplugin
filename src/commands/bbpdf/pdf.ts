@@ -80,7 +80,6 @@ PDF file succesfully written to ./opportunity.pdf`
       const queries = JSON.parse(queriesJSON);
 
       for (const [key, value] of Object.entries(queries)) {
-        console.log(`${key}: ${value}`);
         const queryEntry = value as QueryEntry;
         const result = await conn.query<object>(queryEntry.query);
 
