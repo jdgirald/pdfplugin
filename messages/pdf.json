@@ -1,0 +1,13 @@
+{
+    "commandDescription": "generate a PDF from an EJS template and SOQL queries",
+    "templateFlagDescription": "template file name",
+    "templateDirFlagDescription": "template directory name",
+    "outputFlagDescription": "output file name",
+    "sobjectFlagDescription": "sobject name for the template fields - specify this and a query, or the queries file",
+    "queryFlagDescription": "SOQL query to execute for the sobject - specify this and an sobject, or the queries file",
+    "queryFileFlagDescription": "File containing a collection of SOQL queries for sobjects required by the template - specify this, or an sobject and related query",
+    "errorNoQueryRecords": "No records returned for query '%s'.",
+    "errorQueryAndSObjectOrQueriesRequired": "queries flag may not be used with query or sobject name",
+    "queryRequiresSObject": "query and sobject name must both be specified",
+    "successMessage": "PDF file succesfully written to '%s'"
+  }
