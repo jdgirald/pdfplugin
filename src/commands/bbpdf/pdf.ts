@@ -63,7 +63,6 @@ PDF file succesfully written to ./opportunity.pdf`
 
     const content = {};
     if (this.flags.query) {
-      // Query the setting to see if we need to insert or update
       const result = await conn.query<object>(this.flags.query);
 
       if (!result.records || result.records.length <= 0) {
@@ -111,7 +110,6 @@ PDF file succesfully written to ./opportunity.pdf`
 
     const page = await browser.newPage();
 
-    await page.setContent(html, {waitUntil: 'networkidle0'});
     await page.goto('file:///' + htmlFile, {waitUntil: 'networkidle0'});
     const pdf = await page.pdf({ format: 'A4' });
 
