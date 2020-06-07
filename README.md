@@ -22,7 +22,7 @@ $ npm install -g bbpdf
 $ sfdx COMMAND
 running command...
 $ sfdx (-v|--version|version)
-bbpdf/0.0.0 darwin-x64 node-v11.10.1
+bbpdf/1.0.0 darwin-x64 node-v12.18.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -30,7 +30,63 @@ USAGE
 ```
 <!-- usagestop -->
 <!-- commands -->
+* [`sfdx bbpdf:pdf [-t <string>] [-d <string>] [-o <string>] [-s <string>] [-q <string>] [-f <string>] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-bbpdfpdf--t-string--d-string--o-string--s-string--q-string--f-string--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 * [`sfdx hello:org [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-helloorg--n-string--f--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+
+## `sfdx bbpdf:pdf [-t <string>] [-d <string>] [-o <string>] [-s <string>] [-q <string>] [-f <string>] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+
+generate a PDF from an EJS template and SOQL queries
+
+```
+USAGE
+  $ sfdx bbpdf:pdf [-t <string>] [-d <string>] [-o <string>] [-s <string>] [-q <string>] [-f <string>] [-v <string>] [-u 
+  <string>] [--apiversion <string>] [--json] [--loglevel 
+  trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+
+OPTIONS
+  -d, --template-dir=template-dir                                                   template directory name
+
+  -f, --query-file=query-file                                                       File containing a collection of SOQL
+                                                                                    queries for sobjects required by the
+                                                                                    template - specify this, or an
+                                                                                    sobject and related query
+
+  -o, --output=output                                                               output file name
+
+  -q, --query=query                                                                 SOQL query to execute for the
+                                                                                    sobject - specify this and an
+                                                                                    sobject, or the queries file
+
+  -s, --sobject=sobject                                                             sobject name for the template fields
+                                                                                    - specify this and a query, or the
+                                                                                    queries file
+
+  -t, --template=template                                                           template file name
+
+  -u, --targetusername=targetusername                                               username or alias for the target
+                                                                                    org; overrides default target org
+
+  -v, --targetdevhubusername=targetdevhubusername                                   username or alias for the dev hub
+                                                                                    org; overrides default dev hub org
+
+  --apiversion=apiversion                                                           override the api version used for
+                                                                                    api requests made by this command
+
+  --json                                                                            format output as json
+
+  --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
+                                                                                    this command invocation
+
+EXAMPLES
+  $ sfdx bbpdf:pdf -u user@org.com -d ./templates -t contact.ejs -o ./contact.pdf -s contact
+        -q "select Title, FirstName, LastName, Account.Name from Contact where id='00380000023TUDeAAO'"
+  PDF file succesfully written to ./contact.pdf
+  
+  $ sfdx bbpdf:pdf -u user@org.com -d ../templates -t opportunity.ejs -o ./opportunity.pdf -f ./queries.json
+  PDF file succesfully written to ./opportunity.pdf
+```
+
+_See code: [lib/commands/bbpdf/pdf.js](https://github.com/keirbowden/pdfplugin/blob/v1.0.0/lib/commands/bbpdf/pdf.js)_
 
 ## `sfdx hello:org [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -67,6 +123,8 @@ EXAMPLES
   $ sfdx hello:org --name myname --targetusername myOrg@example.com
      Hello myname! This is org: MyOrg and I will be around until Tue Mar 20 2018!
 ```
+
+_See code: [lib/commands/hello/org.js](https://github.com/keirbowden/pdfplugin/blob/v1.0.0/lib/commands/hello/org.js)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
