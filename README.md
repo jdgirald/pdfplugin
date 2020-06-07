@@ -22,7 +22,7 @@ $ npm install -g bbpdf
 $ sfdx COMMAND
 running command...
 $ sfdx (-v|--version|version)
-bbpdf/1.0.0 darwin-x64 node-v12.18.0
+bbpdf/1.0.1 darwin-x64 node-v12.18.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -86,7 +86,7 @@ EXAMPLES
   PDF file succesfully written to ./opportunity.pdf
 ```
 
-_See code: [lib/commands/bbpdf/pdf.js](https://github.com/keirbowden/pdfplugin/blob/v1.0.0/lib/commands/bbpdf/pdf.js)_
+_See code: [lib/commands/bbpdf/pdf.js](https://github.com/keirbowden/pdfplugin/blob/v1.0.1/lib/commands/bbpdf/pdf.js)_
 
 ## `sfdx hello:org [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
@@ -124,7 +124,7 @@ EXAMPLES
      Hello myname! This is org: MyOrg and I will be around until Tue Mar 20 2018!
 ```
 
-_See code: [lib/commands/hello/org.js](https://github.com/keirbowden/pdfplugin/blob/v1.0.0/lib/commands/hello/org.js)_
+_See code: [lib/commands/hello/org.js](https://github.com/keirbowden/pdfplugin/blob/v1.0.1/lib/commands/hello/org.js)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin

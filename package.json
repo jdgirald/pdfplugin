@@ -1,7 +1,7 @@
 {
   "name": "bbpdf",
   "description": "Plugin to generate PDF documents",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Keir Bowden @keirbowden",
   "bugs": "https://github.com/keirbowden/pdfplugin/issues",
   "dependencies": {
@@ -12,7 +12,7 @@
     "@salesforce/core": "^2",
     "ejs": "^3.1.2",
     "ncp": "^2.0.0",
-    "puppeteer-core": "^3.3.0",
+    "puppeteer-core": "^2.1.1",
     "tmp": "^0.2.1",
     "tslib": "^1"
   },
