@@ -3,10 +3,12 @@ import { Messages, SfdxError } from '@salesforce/core';
 import { AnyJson } from '@salesforce/ts-types';
 import { renderFile} from 'ejs';
 import { readFileSync, writeFileSync  } from 'fs';
-import { copySync } from 'fs-extra';
+import { ncp } from 'ncp';
 import { join } from 'path';
 import { launch } from 'puppeteer-core';
 import { dirSync } from 'tmp';
+import { promisify } from 'util';
+
 
 // Initialize Messages with the current plugin directory
 Messages.importMessagesDirectory(__dirname);
@@ -98,7 +100,8 @@ PDF file succesfully written to ./opportunity.pdf`
 
     const tmpDir = dirSync({ mode: 0o750, prefix: 'bbPDFtmp_' });
 
-    copySync(this.flags['template-dir'], tmpDir.name);
+    const ncpPromisified = promisify(ncp);
+    await ncpPromisified(this.flags['template-dir'], tmpDir.name);
 
     const htmlFile = join(tmpDir.name, 'tmp.html');
     writeFileSync(htmlFile, html);
